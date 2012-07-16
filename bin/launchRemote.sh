@@ -1,5 +1,11 @@
 LOCALRUN="`pwd`/bin/launchLocal.sh"
 MACHINES=("memling" "dali" "banksy")
+DATA="/data/ssh-imagenet-timingTest/data"
+IMAGES="$DATA/image-net-1000000.seq"
+FEATURES="$DATA/features.image-net-1000000.seq"
+
+rm -rf $FEATURES
+mkdir -p $FEATURES
 nmachines=${#MACHINES[@]}
 
 nimages=1000000
