@@ -1,7 +1,9 @@
-DATA="/data/ssh-imagenet-timingTest/data"
+ROOT="/data/ssh-imagenet-timingTest"
+BIN="$ROOT/bin"
+DATA="$ROOT/data"
 IMAGES="$DATA/image-net-1000000.seq"
 FEATURES="$DATA/features.image-net-1000000.seq"
-JAVA_JAR="bin/LocalFeaturesTool.jar"
+JAVA_JAR="$BIN/LocalFeaturesTool.jar"
 JAVA="java -Xmx2G -jar $JAVA_JAR -m SIFT"
 
 echo "MACHINE RUNNING FROM $1 to $2"
