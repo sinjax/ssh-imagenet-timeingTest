@@ -32,5 +32,7 @@ while [[ "$(ssh seurat ls $RUNNING)" ]]; do
 	echo "Not completed!"
 done
 
+echo "done!"
+
 
 # done
