@@ -2,6 +2,7 @@ MACHINES=("memling" "dali" "banksy")
 ROOT="/data/ssh-imagenet-timingTest"
 BIN="$ROOT/bin"
 DATA="$ROOT/data"
+RUNNING="$ROOT/running"
 nmachines=${#MACHINES[@]}
 for (( i = 0; i < $nmachines; i++ )); do
 	# ssh ${MACHINES[$i]} "echo kill -9 `ps aux | grep launchLocal.sh | grep -v grep | cut -d\" \" -f 8`"
@@ -9,6 +10,6 @@ for (( i = 0; i < $nmachines; i++ )); do
 	if [[ -n $TOKILL ]]; then
 		echo $TOKILL
 		ssh ${MACHINES[$i]} "kill -9 $TOKILL"
-		ssh ${MACHINES[$i]} "rm -rf $DATA/running/${MACHINES[$i]}*"
 	fi
 done
+ssh seurat "rm -rf $RUNNING"

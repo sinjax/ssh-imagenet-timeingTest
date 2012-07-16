@@ -7,6 +7,10 @@ IMAGES="$DATA/image-net-1000000.seq"
 FEATURES="$DATA/features.image-net-1000000.seq"
 LOCALRUN="$BIN/launchLocal.sh"
 
+git commit -a -m "running remote commands"
+git push origin master
+
+ssh seurat "cd $ROOT && git pull origin master"
 ssh seurat "rm -rf $FEATURES"
 ssh seurat "mkdir -p $FEATURES"
 ssh seurat "mkdir -p $RUNNING"
@@ -24,9 +28,9 @@ for (( i = 0; i < $nmachines; i++ )); do
 done
 
 echo "Launched! timing completetion!"
-PID=()
-for (( i = 0; i < $nmachines; i++ )); do
-	# ssh ${MACHINES[$i]} "echo kill -9 `ps aux | grep launchLocal.sh | grep -v grep | cut -d\" \" -f 8`"
-	PID[$i]=`ssh ${MACHINES[$i]} "ps -ef | grep launchLocal.sh | grep -v grep" | awk '{print $2}'`
+while [[ "$(ssh seurat ls $RUNNING)" ]]; do
+	echo "Not completed!"
 done
+
+
 # done
