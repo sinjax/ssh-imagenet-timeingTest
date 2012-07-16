@@ -28,11 +28,16 @@ for (( i = 0; i < $nmachines; i++ )); do
 done
 
 echo "Launched! timing completetion!"
+S=`date +%s`;
 while [[ "$(ssh seurat ls $RUNNING)" ]]; do
 	echo "Not completed!"
+	sleep 10
 done
-
+E=`date +%s`;
 echo "done!"
+echo "It took: " $(($E-$S)) "s";
+mkdir -p "times/features/timeout";
+echo $(($E-$S)) > times/features/timeout;
 
 
 # done

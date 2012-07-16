@@ -23,7 +23,7 @@ for (( i = $1; i < $2; i++ )); do
 	# echo $JAVA -i $IMAGES/$i -o $FEATURES/$i > $DATA/`hostname`.lastcmd
 	# $JAVA -i $IMAGES/$i -o $FEATURES/$i
 	$JAVA_BIT $PARA_BIT "$TOOL_BIT" -i $IMAGES -o $FEATURES
-	echo $JAVA_BIT $PARA_BIT "$TOOL_BIT" -i $IMAGES -o $FEATURES > $DATA/`hostname`.lastcmd
+	echo $JAVA_BIT $PARA_BIT \"$TOOL_BIT\" -i $IMAGES -o $FEATURES > $DATA/`hostname`.lastcmd
 	# touch $FEATURES/$i
 done
 rm -rf $RUNNING/`hostname`
