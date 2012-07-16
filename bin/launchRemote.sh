@@ -30,7 +30,8 @@ done
 echo "Launched! timing completetion!"
 S=`date +%s`;
 while [[ "$(ssh seurat ls $RUNNING)" ]]; do
-	echo "Not completed!"
+	# echo "Not completed!"
+	echo -N "."
 	sleep 10
 done
 E=`date +%s`;
