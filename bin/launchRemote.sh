@@ -37,7 +37,8 @@ done
 E=`date +%s`;
 echo "done!"
 echo "It took: " $(($E-$S)) "s";
-mkdir -p "times/features/timeout";
+rm -rf "times/features";
+mkdir -p "times/features";
 echo $(($E-$S)) > times/features/timeout;
 
 
