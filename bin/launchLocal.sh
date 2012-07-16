@@ -6,6 +6,6 @@ JAVA="java -jar $JAVA_JAR -m SIFT -rm"
 
 echo "MACHINE RUNNING FROM $1 to $2"
 for (( i = $1; i < $2; i++ )); do
-	$JAVA -i $IMAGES/$i -i $FEATURES/$i
+	echo $JAVA -i $IMAGES/$i -i $FEATURES/$i > $DATA/`hostname`.lastcmd
 	# touch $FEATURES/$i
 done
