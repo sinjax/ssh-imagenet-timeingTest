@@ -12,8 +12,10 @@ git push origin master
 
 ssh seurat "cd $ROOT && git pull origin master"
 ssh seurat "rm -rf $FEATURES"
+ssh seurat "rm -rf $DATA/split"
 ssh seurat "mkdir -p $FEATURES"
 ssh seurat "mkdir -p $RUNNING"
+ssh seurat "mkdir -p $DATA/split"
 echo "cleaned up, launching jobs"
 nmachines=${#MACHINES[@]}
 
