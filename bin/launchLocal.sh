@@ -18,7 +18,7 @@ TOOL_BIT="-i __IN__ -o __OUT__"
 SPLITDIR=$DATA/split/`hostname`
 echo "running" > $RUNNING/`hostname`
 echo "MACHINE RUNNING FROM $1 to $2"
-mkdir SPLITDIR
+mkdir $SPLITDIR
 for (( i = $1; i < $2; i++ )); do
 	ln -s $IMAGES/$i $SPLITDIR/$i
 done
